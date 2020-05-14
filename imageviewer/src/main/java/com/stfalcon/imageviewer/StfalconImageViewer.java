@@ -172,6 +172,11 @@ public class StfalconImageViewer<T> {
             return this;
         }
 
+        public Builder<T> singleTapClose(Boolean tapClose) {
+            this.data.setTapToClose(tapClose);
+            return this;
+        }
+
         /**
          * Sets space between the images using dimension.
          *

@@ -50,6 +50,8 @@ internal class ImageViewerDialog<T>(
                 setOnShowListener { viewerView.open(builderData.transitionView, animateOpen) }
                 setOnDismissListener { builderData.onDismissListener?.onDismiss() }
             }
+
+        viewerView.tapToClose = builderData.tapToClose
     }
 
     fun show(animate: Boolean) {

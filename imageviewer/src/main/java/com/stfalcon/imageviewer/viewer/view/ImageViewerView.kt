@@ -84,6 +84,8 @@ internal class ImageViewerView<T> @JvmOverloads constructor(
             value?.let { rootContainer.addView(it) }
         }
 
+    internal var tapToClose: Boolean =  false
+
     private var rootContainer: ViewGroup
     private var backgroundView: View
     private var dismissContainer: ViewGroup
@@ -307,6 +309,10 @@ internal class ImageViewerView<T> @JvmOverloads constructor(
     }
 
     private fun handleSingleTap(event: MotionEvent, isOverlayWasClicked: Boolean) {
+        if (tapToClose) {
+            close()
+            return
+        }
         if (overlayView != null && !isOverlayWasClicked) {
             overlayView?.switchVisibilityWithAnimation()
             super.dispatchTouchEvent(event)
